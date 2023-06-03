@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2a9e6b4-0de7-4f5a-91d4-e66ca5ad17b6" name="Changes" comment="pls work" />
+    <list default="true" id="a2a9e6b4-0de7-4f5a-91d4-e66ca5ad17b6" name="Changes" comment="pls work">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +12,12 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2QXBOh83z9pzrTP2q1L2UUv5Y4N" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -20,7 +29,8 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -36,8 +46,14 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1685490017435</updated>
+      <workItem from="1685678452995" duration="845000" />
+      <workItem from="1685710579708" duration="2096000" />
+      <workItem from="1685812464672" duration="1543000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

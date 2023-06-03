@@ -74,7 +74,7 @@ class ActivateView(generics.GenericAPIView):
         user = User.objects.activate(token)
         if user:
             # Redirect to a success page
-            return redirect('https://landingpage.jaromtravels.com')
+            return redirect('https://akin125.github.io/iconoasis/')
         else:
             # Return an error response
             return Response({'error': 'Invalid activation token'}, status=status.HTTP_400_BAD_REQUEST)
