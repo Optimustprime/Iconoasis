@@ -1,0 +1,141 @@
+.loginContainer1 {
+    margin-top: 12%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 5%;
+    flex-direction: column;
+    align-items: center;
+}
+.passwordDetails{
+    font-size: 10px;
+    text-align: left;
+    margin-bottom: 42px;
+}
+.error-message{
+    font-size: 10px;
+}
+
+.alt{
+    margin-top: 20px;
+    font-size: 15px;
+}
+.sss{
+
+    text-decoration: none;
+    color: #4f67f9;
+}
+
+.Name{
+    margin-top: 30px;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 33px;
+    line-height: 47px;
+    color: #4f67f9;
+    margin-bottom: 10px;
+}
+
+.Name-1{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 47px;
+    color: #240044;
+    margin-bottom: 10px;
+}
+
+.text{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: hsl(206deg 86.69% 13.66%);
+}
+
+form{
+    margin-top: 47px;
+    display: flex;
+    flex-direction: column;
+}
+
+form input:focus-visible{
+    outline:  #4f67f9 solid 2px;
+}
+
+form input{
+    font-family: Rubik;
+    text-indent: 10px;
+    margin-bottom: 30px;
+    width: 260.08px;
+    height: 32px;
+    padding: 5px;
+    background: #c3e6f9;
+    border-radius: 5.04036px;
+    border: none;
+    color:  hsl(206deg 86.69% 13.66%);
+}
+
+.submit{
+    margin-top: 40px;
+    border-radius: 7px;
+    width: 139.11px;
+    height: 32.26px;
+    border: none;
+    background: #4f67f9;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15.1211px;
+    line-height: 18px;
+    text-align: center;
+    color:  white;
+    font-family: Rubik;
+}
+
+.submit:hover{
+    background-color: #8394ff;
+}
+
+
+
+@media (min-width: 760px) {
+
+    .Name-1 {
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 68px;
+        line-height: 47px;
+        color: #240044;
+        margin-bottom: 10px;
+    }
+
+    .Name {
+        font-weight: 800;
+        font-size: 52.0341px;
+        line-height: 83px;
+    }
+
+    .text{
+        font-weight: 300;
+        font-size: 35.0171px;
+        line-height: 41px;
+        text-align: center;
+    }
+
+    form input{
+        width: 478.72px;
+        height: 56.03px;
+        font-size: 20px;
+    }
+
+    .submit{
+        width: 241.62px;
+        height: 56.03px;
+        font-size: 27px;
+    }
+}

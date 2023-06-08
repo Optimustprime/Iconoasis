@@ -7,7 +7,7 @@ services:
       args:
         - DEV=true
     ports:
-      - "8000:8000"
+      - "8001:8001"
     volumes:
       - ./app:/app
       - dev-static-data:/vol/web
@@ -30,6 +30,17 @@ services:
       - POSTGRES_DB=devdb
       - POSTGRES_USER=devuser
       - POSTGRES_PASSWORD=changeme
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ./Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - app
 
 volumes:
   dev-db-data:
