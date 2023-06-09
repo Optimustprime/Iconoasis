@@ -1,57 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2a9e6b4-0de7-4f5a-91d4-e66ca5ad17b6" name="Changes" comment="pls work">
-      <change afterPath="$PROJECT_DIR$/frontend/frontend.sh" afterDir="false" />
+    <list default="true" id="a3179be0-0317-4c4a-beb1-629f7b56ac7d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose-deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-deploy.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/default.conf.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/default.conf.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/component/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/component/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/component/SearchFilter/test.jsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
-    <execution />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2QXBOh83z9pzrTP2q1L2UUv5Y4N" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2Qtovttnh5OoVYI1diQEUrsceba" />
   <component name="ProjectViewState">
+    <option name="abbreviatePackageNames" value="true" />
+    <option name="flattenPackages" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/ajadi/IdeaProjects/Iconoasis/frontend",
+    "last_opened_file_path": "C:/Users/Dell/WebstormProjects/iconoasis/frontend",
     "nodejs_package_manager_path": "npm"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\ajadi\IdeaProjects\Iconoasis\frontend" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ajadi\IdeaProjects\Iconoasis\frontend" />
-      <recent name="C:\Users\ajadi\IdeaProjects\Iconoasis\scripts" />
+      <recent name="C:\Users\Dell\WebstormProjects\iconoasis\frontend" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="npm.start (1)">
+    <configuration name="deploy" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="deploy" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/frontend/package.json" />
       <command value="run" />
       <scripts>
@@ -61,25 +74,37 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="npm.start" />
+      <item itemvalue="npm.deploy" />
+      <item itemvalue="npm.start (1)" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
+        <item itemvalue="npm.start (1)" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a2a9e6b4-0de7-4f5a-91d4-e66ca5ad17b6" name="Changes" comment="" />
-      <created>1685490017435</created>
+      <changelist id="a3179be0-0317-4c4a-beb1-629f7b56ac7d" name="Changes" comment="" />
+      <created>1686182473314</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1685490017435</updated>
-      <workItem from="1685678452995" duration="845000" />
-      <workItem from="1685710579708" duration="2096000" />
-      <workItem from="1685812464672" duration="4061000" />
-      <workItem from="1686162797215" duration="3000" />
-      <workItem from="1686249845330" duration="12816000" />
+      <updated>1686182473314</updated>
+      <workItem from="1686182474978" duration="6494000" />
+      <workItem from="1686228503890" duration="17253000" />
     </task>
     <servers />
   </component>
@@ -96,10 +121,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="iii" />
-    <MESSAGE value="pls work" />
-    <option name="LAST_COMMIT_MESSAGE" value="pls work" />
   </component>
 </project>
