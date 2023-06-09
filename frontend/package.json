@@ -1,7 +1,7 @@
 {
   "name": "iconoasis",
   "version": "0.2.0",
-  "homepage": "http://18.116.59.53/iconoasis",
+  "homepage": "http://172.31.24.153/iconoasis",
   "private": false,
   "dependencies": {
     "@react-buddy/ide-toolbox": "^2.2.1",

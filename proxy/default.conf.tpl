@@ -12,6 +12,6 @@ server {
     }
 
     location / {
-        proxy_pass http://18.116.59.53:${FRONTEND_PORT};
+        proxy_pass http://172.31.24.153:${FRONTEND_PORT};
     }
 }
