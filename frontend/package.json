@@ -1,7 +1,7 @@
 {
   "name": "iconoasis",
   "version": "0.2.0",
-  "homepage": "https://Akin125.github.io/iconoasis",
+  "homepage": "http://18.116.59.53/iconoasis",
   "private": false,
   "dependencies": {
     "@react-buddy/ide-toolbox": "^2.2.1",

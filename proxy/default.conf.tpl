@@ -12,6 +12,6 @@ server {
     }
 
     location / {
-        proxy_pass http://host.docker.internal:${FRONTEND_PORT};
+        proxy_pass http://18.116.59.53:${FRONTEND_PORT};
     }
 }
