@@ -68,6 +68,7 @@ export default  function SearchFilter () {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+        console.log(url)
     }
 
 
@@ -125,7 +126,10 @@ export default  function SearchFilter () {
                 {/*<p>{searchicondata.icon[0].format}</p>*/}
             </div>
 
+            {query ?
+
             <table>
+                <div className='strong'>Showing Result for: <strong>{query}</strong></div>
                 <tbody>
             {/*    {images.filter(image => image.alt.some(filter => filter.toLowerCase().includes(query.toLowerCase()))*/}
             {/*        // && icon.format.toLowerCase() === selectItem.toLowerCase()// since there is no format*/}
@@ -146,5 +150,8 @@ export default  function SearchFilter () {
             ))}
                 </tbody>
             </table>
+            :
+            <h1 className='testing'>Your one stop PHOTO Destination</h1>
+            }
         </div>
     )}

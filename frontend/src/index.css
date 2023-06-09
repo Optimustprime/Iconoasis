@@ -9,6 +9,18 @@ body {
   background-position: bottom;
 }
 
+.testing{
+  padding-top: 30%;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.strong{
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
 .btn--{
   /*margin-top: 10px;*/
   font-family: Rubik;
@@ -187,7 +199,8 @@ tbody{
   justify-content: center;
 }
 
-table{
+table {
+  text-align: center;
   margin: 40px 10px;
 }
 
@@ -275,6 +288,10 @@ tbody td {
     font-size: 14px;
     padding: 20px;
   }
+  .strong{
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
 
   ul {
     text-align: center;
@@ -348,6 +365,10 @@ tbody td {
 @media (min-width : 1440px) {
   table {
     margin: 200px 10px;
+  }
+  .strong{
+    margin-bottom: 20px;
+    font-size: 40px;
   }
 }
 
