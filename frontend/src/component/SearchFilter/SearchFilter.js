@@ -89,7 +89,7 @@ export default  function SearchFilter () {
             {images.map((image) => (
 
                 <td key={image.id}>
-                    <IconComponent  img={image.src.medium} name={image.alt} onclick={() => downloadImage(image.src.original)}/>
+                    <IconComponent img={image.src.medium} name={image.alt} onclick={() => downloadImage(image.src.original)}/>
                 </td>
 
             ))}
