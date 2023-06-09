@@ -113,14 +113,13 @@ export default  function SearchFilter () {
                 {True && <div className='strong'>Showing Result for: <strong>{query}</strong></div>}
                 <tbody>
 
+                    {images.map((image) => (
 
-            {images.map((image) => (
+                        <td key={image.id}>
+                            <IconComponent img={image.src.medium} name={image.alt} onclick={() => downloadImage(image.src.original, image.alt)}/>
+                        </td>
 
-                <td key={image.id}>
-                    <IconComponent img={image.src.medium} name={image.alt} onclick={() => downloadImage(image.src.original, image.alt)}/>
-                </td>
-
-            ))}
+                    ))}
                 </tbody>
             </table>
             :
