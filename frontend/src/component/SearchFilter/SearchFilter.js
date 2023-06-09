@@ -6,6 +6,7 @@ import axios from "axios";
 export default  function SearchFilter () {
 
     const [query, setQuery] = React.useState('')
+    const [True, setTrue] = React.useState(false)
     const [images, setImages] = useState([]);
 
     useEffect(() => {
@@ -33,21 +34,48 @@ export default  function SearchFilter () {
             });
 
             setImages(response.data.photos);
+            setTrue(true);
         } catch (error) {
             console.error('Error fetching images:', error);
         }
     };
 
 
-    function downloadImage(url) {
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = "image.jpg";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        console.log(url)
-    }
+
+
+    const downloadImage = async (url, name) => {
+        try {
+            const img = new Image();
+            img.src = url;
+            img.onload = async () => {
+                try {
+                    const response = await fetch(url);
+                    const contentType = response.headers.get('content-type');
+                    const extension = contentType.split('/')[1];
+                    if (extension !== 'jpeg' && extension !== 'png' && extension !== 'gif') {
+                        throw new Error('Invalid file type');
+                    }
+                    alert('downloading...');
+                    const blob = await response.blob();
+                    const objectUrl = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = objectUrl;
+                    link.download = `${name}.${extension}`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(objectUrl);
+
+                } catch (error) {
+                    console.error(error);
+                }
+            };
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+
 
 
     function handleKeyDown(event){
@@ -82,14 +110,14 @@ export default  function SearchFilter () {
             {query ?
 
             <table>
-                <div className='strong'>Showing Result for: <strong>{query}</strong></div>
+                {True && <div className='strong'>Showing Result for: <strong>{query}</strong></div>}
                 <tbody>
 
 
             {images.map((image) => (
 
                 <td key={image.id}>
-                    <IconComponent img={image.src.medium} name={image.alt} onclick={() => downloadImage(image.src.original)}/>
+                    <IconComponent img={image.src.medium} name={image.alt} onclick={() => downloadImage(image.src.original, image.alt)}/>
                 </td>
 
             ))}
