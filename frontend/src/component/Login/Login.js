@@ -30,7 +30,7 @@ export default function Login() {
             }
         }
         catch (error) {
-            setErrorMessage("An error occurred. Please try again.");
+            setErrorMessage("Invalid credentials. Please try again.");
         }
     };
 
