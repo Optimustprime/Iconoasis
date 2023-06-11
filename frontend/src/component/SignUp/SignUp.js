@@ -135,7 +135,7 @@ function SignUp() {
             <div className="loginContainer2">
                 <div className="top-section">
                     <div className="Name">ICONOASIS</div>
-                    <div className="text">Your one-stop icon destination</div>
+                    <div className="text">Your one-stop photo destination</div>
                 </div>
                 {
                     registrationSuccess ? <p className={'checkmail'}>Registration Successful. Check your mail (spam) for <Link className='link' to='/'>login</Link>  Authorization </p>
@@ -183,7 +183,7 @@ function SignUp() {
                             name="password"
 
                         />
-                        <div className={'yammm'} onClick={handleToggle}>{toggle ? 'unsee' : 'see'}</div>
+                        <div className={'yammm'} onClick={handleToggle}>{toggle ? '😃' : '😚'}</div>
                     </div>
                     {passwordError && (
                         <div className="passwordDetails">{passwordError}</div>
@@ -198,7 +198,7 @@ function SignUp() {
                             onChange={handleConfirmPasswordChange}
                             name="ConfirmPassword"
                         />
-                        <div className={'yammm'} onClick={handleToggle}>{toggle ? 'unsee' : 'see'}</div>
+                        <div className={'yammm'} onClick={handleToggle}>{toggle ? '😃' : '😚'}</div>
                     </div>
                     {passwordError && (
                         <div className="passwordDetails">{passwordError}</div>
