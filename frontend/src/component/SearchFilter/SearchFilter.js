@@ -44,18 +44,21 @@ export default  function SearchFilter () {
 
 
     const downloadImage = async (url, name) => {
+        alert('Download Building Please Wait (Click OK)...');
         try {
             const img = new Image();
             img.src = url;
             img.onload = async () => {
                 try {
+
                     const response = await fetch(url);
                     const contentType = response.headers.get('content-type');
                     const extension = contentType.split('/')[1];
                     if (extension !== 'jpeg' && extension !== 'png' && extension !== 'gif') {
                         throw new Error('Invalid file type');
                     }
-                    alert('downloading...');
+
+                    alert('Downloading (Click OK)...');
                     const blob = await response.blob();
                     const objectUrl = URL.createObjectURL(blob);
                     const link = document.createElement('a');
@@ -113,14 +116,13 @@ export default  function SearchFilter () {
                 {True && <div className='strong'>Showing Result for: <strong>{query}</strong></div>}
                 <tbody>
 
+                    {images.map((image) => (
 
-            {images.map((image) => (
+                        <td key={image.id}>
+                            <IconComponent img={image.src.medium} name={image.alt} onclick={() => downloadImage(image.src.original, image.alt)}/>
+                        </td>
 
-                <td key={image.id}>
-                    <IconComponent img={image.src.medium} name={image.alt} onclick={() => downloadImage(image.src.original, image.alt)}/>
-                </td>
-
-            ))}
+                    ))}
                 </tbody>
             </table>
             :

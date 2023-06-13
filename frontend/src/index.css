@@ -8,7 +8,19 @@ body {
   background-repeat: no-repeat;
   background-position: bottom;
 }
+#ydy{
+  text-align: center;
+}
 
+.beast {
+  padding: 20px;
+  margin-top: 20%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  align-content: stretch;
+}
 .testing{
   padding-top: 30%;
   display: block;
@@ -69,9 +81,13 @@ body {
   justify-content: space-between;
 }
 .user{
-  color: #03abfe;
-  font-size: 10px;
-  padding: 20px;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 10px;
+}
+
+#jfbj{
+  padding-left: 13px;
 }
 
 .user span{
@@ -193,10 +209,10 @@ ul{
   padding: 5px;
 }
 
-tbody{
+tbody {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 table {
