@@ -2,6 +2,9 @@
 
 Welcome to ICONOASIS, a dynamic photo marketplace that provides a user-friendly interface for browsing and downloading high-quality photos. This repository contains all the necessary code and resources to run the ICONOASIS website locally or deploy it to a live server.
 
+![image](https://github.com/Optimustprime/Iconoasis/assets/110476898/1ca612f5-2a3d-40ae-9ffc-765e98612691)
+
+
 ## Features
 
 - User-friendly interface for browsing and discovering photos
