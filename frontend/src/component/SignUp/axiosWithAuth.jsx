@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 const axiosWithAuth = axios.create({
-    baseURL: 'http://ec2-3-129-7-195.us-east-2.compute.amazonaws.com/api/',
+    baseURL: 'http://ec2-3-131-95-194.us-east-2.compute.amazonaws.com/api/',
     headers: {
         Authorization: `Token ${localStorage.getItem('ent')}`
     },
