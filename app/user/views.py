@@ -74,7 +74,7 @@ class ActivateView(generics.GenericAPIView):
         user = User.objects.activate(token)
         if user:
             # Redirect to a success page
-            return redirect('http://ec2-3-131-95-194.us-east-2.compute.amazonaws.com/')
+            return redirect('http://ec2-18-118-83-32.us-east-2.compute.amazonaws.com/')
         else:
             # Return an error response
             return Response({'error': 'Invalid activation token'}, status=status.HTTP_400_BAD_REQUEST)
