@@ -7,7 +7,7 @@ from django.contrib.auth import (
 )
 from django.utils.translation import gettext as _
 from rest_framework import serializers, status
-from core.models import User, SubscribeEmail
+from core.models import User, SubscribeEmail, Message
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -15,7 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = ['name', 'email', 'password', 'username', 'image']
+        fields = ['name', 'email', 'password', 'username','date_of_birth','gender','whatsapp_number','isPaid', 'image','course']
         extra_kwargs = {'password': {'write_only': True, 'min_length': 5}}
 
     def validate_username(self, value):
@@ -28,6 +28,12 @@ class UserSerializer(serializers.ModelSerializer):
         """Create and return a user with encrypted password."""
         request = self.context.get('request')
         return get_user_model().objects.create_user(request=request, **validated_data)
+
+    def validate_whatsapp_number(self, value):
+        """Validates the WhatsApp number to have exactly 14 characters."""
+        if len(value) != 14:
+            raise serializers.ValidationError('WhatsApp number must have exactly 14 characters.')
+        return value
 
     def update(self, instance, validated_data):
         """Update and return user."""
@@ -145,6 +151,11 @@ class ResendActivationSerializer(serializers.Serializer):
             raise serializers.ValidationError('User is already activated.', code='already_activated')
 
         return attrs
+
+class MessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Message
+        fields = ['subject', 'content', 'email', 'created_at']
 
 
 class SendEmailSerializer(serializers.Serializer):

@@ -18,10 +18,10 @@ from rest_framework.generics import GenericAPIView
 from rest_framework.settings import api_settings
 from rest_framework.views import APIView
 from user.serializers import (UserSerializer, AuthTokenSerializer, UserImageSerializer, PasswordResetSerializer,
-                              PasswordResetConfirmSerializer, ResendActivationSerializer, SendEmailSerializer, SubscribeEmailSerializer)
+                              PasswordResetConfirmSerializer, ResendActivationSerializer, SendEmailSerializer, SubscribeEmailSerializer, MessageSerializer)
 from rest_framework import generics, status, viewsets
 from rest_framework.response import Response
-from core.models import User, SubscribeEmail
+from core.models import User, SubscribeEmail, Message
 from django.shortcuts import redirect
 
 
@@ -137,6 +137,7 @@ class PasswordResetConfirmView(generics.GenericAPIView):
 
 
 class ResendActivationView(APIView):
+    """Resend Activation mail"""
     serializer_class = ResendActivationSerializer
 
     def post(self, request):
@@ -170,6 +171,7 @@ class ResendActivationView(APIView):
 
 
 class SendEmailView(GenericAPIView):
+    """Sends Emails to Specific users"""
     serializer_class = SendEmailSerializer
 
     def post(self, request):
@@ -189,6 +191,64 @@ class SendEmailView(GenericAPIView):
 
         return Response({'success': 'Email sent'}, status=status.HTTP_200_OK)
 
+
+class SendMessageToAllUsersView(generics.CreateAPIView):
+    serializer_class = MessageSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        # Send email to all users in the database
+        recipients = User.objects.all()  # Retrieve all users
+        subject = serializer.validated_data['subject']
+        email_body = serializer.validated_data['content']
+        from_email = 'landingpage@jaromtravels.com'  # Specify the "from" email address
+
+        for recipient in recipients:
+            # Code to send email to recipient.email with the message goes here
+            email = EmailMessage(subject, email_body, from_email, to=[recipient.email])
+            email.send()
+
+            # Store the message in the database for each user
+            Message.objects.create(user=recipient, subject=subject, content=email_body)
+
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+class SendMessageToUserView(generics.CreateAPIView):
+    serializer_class = MessageSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        recipient_email = request.data.get('email')
+        message = serializer.validated_data['content']
+        from_email = 'landingpage@jaromtravels.com'  # Specify the "from" email address
+
+        # Find the user associated with the recipient_email
+        user = User.objects.get(email=recipient_email)
+
+        # Code to send email to recipient_email with the message goes here
+        subject = 'Message from admin'
+        email_body = f'Hello,\n\n{message}'
+        email = EmailMessage(subject, email_body, from_email, to=[recipient_email])
+        email.send()
+
+        # Store the message in the database with the recipient's email and user
+        serializer.save(email=recipient_email, user=user)
+
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+class UserMessagesView(generics.ListAPIView):
+    serializer_class = MessageSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        # Retrieve the messages associated with the authenticated user
+        user = self.request.user
+        return Message.objects.filter(user=user)
 
 class SubscribeEmailView(APIView):
     serializer_class = SubscribeEmailSerializer

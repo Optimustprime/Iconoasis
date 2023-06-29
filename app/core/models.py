@@ -72,13 +72,30 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    GENDER_CHOICES = (
+        ('M', 'Male'),
+        ('F', 'Female'),
+        ('O', 'Other'),
+    )
+    COURSE_CHOICES = (
+        ('BackEnd','Optimust'),
+        ('UI/UX','DesignGuy'),
+        ('FrontEnd','Sanni'),
+        ('No Course','Starpenzu'),
+    )
     name = models.CharField(max_length=255)
     email = models.EmailField(max_length=255, unique=True)
     username = models.CharField(max_length=255)
+    date_of_birth = models.DateField(null=True)
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True)
+    course = models.CharField(max_length=9, choices=COURSE_CHOICES, null=True,default='No Course')
+    whatsapp_number = models.CharField(max_length=14, null=True)
+    isPaid = models.BooleanField(default=False)
     activation_token = models.CharField(max_length=32, null=True, blank=True)
     is_active = models.BooleanField(default=None)
     is_staff = models.BooleanField(default=False)
     image = models.ImageField(null=True, upload_to=recipe_image_file_path)
+
 
     objects = UserManager()
     USERNAME_FIELD = "email"
@@ -87,34 +104,12 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.email
 
 
-class Recipe(models.Model):
-    """Recipe object"""
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-    )
-    title = models.CharField(max_length=255)
-    description = models.TextField(blank=True)
-    time_minutes = models.IntegerField()
-    price = models.DecimalField(max_digits=5, decimal_places=2)
-    link = models.CharField(max_length=255, blank=True)
-    tag = models.ManyToManyField('Tag')  # manytomany because we can have many tags to many recipes
-
-    def __str__(self):
-        return self.title
-
-
-class Tag(models.Model):
-    """Tag for filtering recipes."""
-    name = models.CharField(max_length=255)
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-    )
-
-    def __str__(self):
-        return self.name
-
+class Message(models.Model):
+    subject = models.CharField(max_length=255)
+    content = models.TextField()
+    email = models.EmailField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='messages')
 
 class SubscribeEmail(models.Model):
     email = models.EmailField()
