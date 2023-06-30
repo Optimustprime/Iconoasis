@@ -236,9 +236,12 @@ class SendMessageToUserView(generics.CreateAPIView):
         email.send()
 
         # Store the message in the database with the recipient's email and user
-        Message.objects.create(user=user, subject=subject, content=email_body)
+        message = Message.objects.create(user=user, subject=subject, content=email_body)
+        message.recipient_email = recipient_email
+        message.save()
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 
 
