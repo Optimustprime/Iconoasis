@@ -247,7 +247,6 @@ class SendMessageToUserView(generics.CreateAPIView):
 
 class UserMessagesView(generics.ListAPIView):
     serializer_class = MessageSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         # Retrieve the user based on the provided email from URL path
