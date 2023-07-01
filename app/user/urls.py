@@ -15,7 +15,7 @@ urlpatterns = [
     path('subscribe-email/', views.SubscribeEmailView.as_view(), name='subscribe_email'),
     path('send-all/', views.SendMessageToAllUsersView.as_view(), name='send-all'),
     path('send-user/', views.SendMessageToUserView.as_view(), name='send-user'),
-    path('users/<str:token>/messages/', views.UserMessagesView.as_view(), name='user-messages'),
+    path('users/<str:email>/messages/', views.UserMessagesView.as_view(), name='user-messages')
 
     # path('activate/<str:token>/', views.ActivateView.as_view(), name='activate'),
 ]

@@ -23,6 +23,7 @@ from rest_framework import generics, status, viewsets
 from rest_framework.response import Response
 from core.models import User, SubscribeEmail, Message
 from django.shortcuts import redirect
+from django.http import Http404
 
 
 class CreateUserView(generics.CreateAPIView):
@@ -206,14 +207,14 @@ class SendMessageToAllUsersView(generics.CreateAPIView):
         from_email = 'landingpage@jaromtravels.com'  # Specify the "from" email address
 
         for recipient in recipients:
+            # Store the message in the database for each user
+            Message.objects.create(user=recipient, subject=subject, content=email_body)
             # Code to send email to recipient.email with the message goes here
             email = EmailMessage(subject, email_body, from_email, to=[recipient.email])
             email.send()
 
-            # Store the message in the database for each user
-            Message.objects.create(user=recipient, subject=subject, content=email_body)
-
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 class SendMessageToUserView(generics.CreateAPIView):
     serializer_class = MessageSerializer
@@ -223,23 +224,25 @@ class SendMessageToUserView(generics.CreateAPIView):
         serializer.is_valid(raise_exception=True)
 
         recipient_email = request.data.get('email')
-        message = serializer.validated_data['content']
+        email_body = serializer.validated_data['content']
         from_email = 'landingpage@jaromtravels.com'  # Specify the "from" email address
-
-        # Find the user associated with the recipient_email
-        user = User.objects.get(email=recipient_email)
-
-        # Code to send email to recipient_email with the message goes here
         subject = serializer.validated_data['subject']
-        email_body = f'Hello,\n\n{message}'
-        serializer.save(email=recipient_email, user=user)
+        try:
+            user = User.objects.get(email=recipient_email)
+        except User.DoesNotExist:
+            return Response({"error": "User with the provided email does not exist."},
+                            status=status.HTTP_404_NOT_FOUND)
+
+        Message.objects.create(user=user, subject=subject, content=email_body)
+        # user = User.objects.get(email='philipoluseyi@gmail.com')
+        # messages = user.messages.all()
+        # print(messages)
 
         email = EmailMessage(subject, email_body, from_email, to=[recipient_email])
         email.send()
 
-        # Store the message in the database with the recipient's email and user
-
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 
 class UserMessagesView(generics.ListAPIView):
@@ -247,9 +250,16 @@ class UserMessagesView(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        # Retrieve the messages associated with the authenticated user
-        user = self.request.user
+        # Retrieve the user based on the provided email from URL path
+        email = self.kwargs['email']
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            raise Http404("User not found.")  # Return an empty queryset if user not found
+        # Retrieve the messages associated with the user
         return Message.objects.filter(user=user)
+
+
 
 class SubscribeEmailView(APIView):
     serializer_class = SubscribeEmailSerializer
